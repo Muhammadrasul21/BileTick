@@ -4,17 +4,13 @@ import google from "@/assets/google.svg";
 import appstore from "@/assets/appstore.svg";
 import { Link } from "react-router-dom";
 import { footerCategory, footerInfo } from "@/static";
-import {
-  RiInstagramLine,
-  RiYoutubeLine,
-  RiFacebookCircleLine,
-} from "react-icons/ri";
+import { RiInstagramLine, RiYoutubeLine, RiTelegramLine } from "react-icons/ri";
 
 const Footer = () => {
   return (
-    <div>
-      <div className="container bg-[#111111] ">
-        <div className=" p-8 flex justify-between flex-wrap flex-col gap-8 sm:flex-row">
+    <div className="pb-10">
+      <div className="container bg-[#111111] rounded-xl">
+        <div className="footer p-8 flex justify-between">
           <div className="flex flex-col gap-2">
             <Link
               to={
@@ -75,9 +71,21 @@ const Footer = () => {
             <div className="flex flex-col gap-5 text-primary">
               <p className="text-white font-medium">Social Media</p>
               <div className="flex gap-5">
-                <RiInstagramLine className="min-w-5 min-h-5 cursor-pointer" />{" "}
-                <RiFacebookCircleLine className="min-w-5 min-h-5 cursor-pointer" />{" "}
-                <RiYoutubeLine className="min-w-5 min-h-5 cursor-pointer" />
+                <Link
+                  to={"https://www.instagram.com/gulomoov_1"}
+                  target="blank"
+                >
+                  <RiInstagramLine className="min-w-5 min-h-5 cursor-pointer" />{" "}
+                </Link>
+                <Link to={"https://t.me/gulomjonovs_1"} target="blank">
+                  <RiTelegramLine className="min-w-5 min-h-5 cursor-pointer" />{" "}
+                </Link>
+                <Link
+                  to={"https://www.youtube.com/@gulomoov__1"}
+                  target="blank"
+                >
+                  <RiYoutubeLine className="min-w-5 min-h-5 cursor-pointer" />
+                </Link>
               </div>
             </div>
           </div>

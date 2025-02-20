@@ -114,3 +114,23 @@
       -2em -2em 0 0.2em;
   }
 }
+
+@media (max-width: 890px) {
+  .footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+  }
+}
+@media (max-width: 690px) {
+  .footer {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 40px;
+  }
+}
+@media (max-width: 500px) {
+  .footer {
+    grid-template-columns: 1fr;
+    grid-gap: 40px;
+  }
+}

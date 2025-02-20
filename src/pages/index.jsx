@@ -7,6 +7,7 @@ const Layout = lazy(() => import("../pages/layout/Layout"));
 const Detail = lazy(() => import("../pages/detail/Detail"));
 const Saved = lazy(() => import("../pages/saved/Saved"));
 const Search = lazy(() => import("../pages/search/Search"));
+const Movies = lazy(() => import("../components/Movies"));
 
 const RouterMain = () => {
   return (
@@ -49,6 +50,14 @@ const RouterMain = () => {
             element={
               <SuspenseContainer>
                 <Search />
+              </SuspenseContainer>
+            }
+          />
+          <Route
+            path="movies"
+            element={
+              <SuspenseContainer>
+                <Movies />
               </SuspenseContainer>
             }
           />

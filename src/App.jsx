@@ -1,7 +1,7 @@
-import RouterMain from "./pages"
+import RouterMain from "./pages";
 
 function App() {
-  return <RouterMain/>
+  return <RouterMain />;
 }
 
-export default App
+export default App;

@@ -1,25 +1,25 @@
-import { mainApi } from './index'
+import { mainApi } from "./index";
 
 const extendedApi = mainApi.injectEndpoints({
   endpoints: (build) => ({
     login: build.mutation({
       query: (body) => ({
-        url: '/auth/login',
+        url: "/auth/login",
         method: "POST",
-        body
+        body,
       }),
     }),
     profile: build.query({
-      query: ()=> ({
+      query: () => ({
         url: "/auth/me",
         method: "GET",
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("access_token")}`
-        }
-      })
-    })
+          Authorization: `Bearer ${localStorage.getItem("access_token")}`,
+        },
+      }),
+    }),
   }),
   overrideExisting: false,
-})
+});
 
-export const { useLoginMutation, useProfileQuery } = extendedApi
+export const { useLoginMutation, useProfileQuery } = extendedApi;

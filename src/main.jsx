@@ -10,7 +10,7 @@ const App = lazy(() => import("./App"));
 
 const themeConfig = {
   token: {
-    colorPrimary: "#f00", 
+    colorPrimary: "#f00",
     borderRadius: 4,
     colorBgContainer: "#fff",
   },
@@ -25,5 +25,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         </SuspenseContainer>
       </BrowserRouter>
     </Provider>
-  </ConfigProvider>
+  </ConfigProvider>,
 );

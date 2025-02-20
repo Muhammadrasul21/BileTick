@@ -1,10 +1,10 @@
-import { mainApi } from './index'
+import { mainApi } from "./index";
 
 const extendedApi = mainApi.injectEndpoints({
   endpoints: (build) => ({
     getMovies: build.query({
       query: (params) => ({
-        url: '/discover/movie',
+        url: "/discover/movie",
         method: "GET",
         params,
       }),
@@ -24,11 +24,16 @@ const extendedApi = mainApi.injectEndpoints({
     getSingleMovieSimilar: build.query({
       query: (id) => ({
         url: `/movie/${id}/similar`,
-        method: "GET", 
+        method: "GET",
       }),
     }),
   }),
   overrideExisting: false,
-})
+});
 
-export const { useGetMoviesQuery, useGetSingleMovieQuery, useGetSingleMovieImagesQuery, useGetSingleMovieSimilarQuery } = extendedApi
+export const {
+  useGetMoviesQuery,
+  useGetSingleMovieQuery,
+  useGetSingleMovieImagesQuery,
+  useGetSingleMovieSimilarQuery,
+} = extendedApi;

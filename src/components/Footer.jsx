@@ -9,7 +9,7 @@ import { RiInstagramLine, RiYoutubeLine, RiTelegramLine } from "react-icons/ri";
 const Footer = () => {
   return (
     <div className="pb-10">
-      <div className="container bg-[#111111] rounded-xl">
+      <div className="container bg-[#f8f9fa] dark:bg-[#111111] rounded-xl">
         <div className="footer p-8 flex justify-between">
           <div className="flex flex-col gap-2">
             <Link
@@ -39,7 +39,7 @@ const Footer = () => {
             {footerInfo?.map((item) => (
               <li
                 key={item.id}
-                className="flex items-center gap-2 text-white hover:text-primary hover:underline focus:text-primary focus:underline transition duration-200 cursor-pointer"
+                className="flex items-center gap-2 text-black dark:text-white hover:text-primary hover:underline focus:text-primary focus:underline transition duration-200 cursor-pointer"
               >
                 <item.icon className="text-primary" />
                 {item.title}
@@ -52,7 +52,7 @@ const Footer = () => {
             {footerCategory?.map((item) => (
               <li
                 key={item.id}
-                className="flex items-center gap-2 text-white hover:text-primary hover:underline focus:text-primary focus:underline transition duration-200 cursor-pointer"
+                className="flex items-center gap-2 text-black dark:text-white hover:text-primary hover:underline focus:text-primary focus:underline transition duration-200 cursor-pointer"
               >
                 <item.icon className="text-primary" />
                 {item.title}
@@ -69,7 +69,9 @@ const Footer = () => {
             </div>
 
             <div className="flex flex-col gap-5 text-primary">
-              <p className="text-white font-medium">Social Media</p>
+              <p className="text-black dark:text-white font-medium">
+                Social Media
+              </p>
               <div className="flex gap-5">
                 <Link
                   to={"https://www.instagram.com/gulomoov_1"}

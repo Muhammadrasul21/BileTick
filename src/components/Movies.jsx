@@ -15,7 +15,7 @@ const Movies = () => {
 
   return (
     <div className="container">
-      <div className="grid grid-cols-5 gap-2.5">
+      <div className="footer grid grid-cols-5 gap-2.5 mb-8">
         {data?.results?.slice(0, visibleMovies).map((movie) => (
           <div
             className="border border-gray-300 dark:border-gray-800 dark:bg-gray-700"
@@ -50,7 +50,7 @@ const Movies = () => {
         <div className="flex justify-center mt-5">
           <button
             onClick={handleSeeMore}
-            className="px-6 py-2 bg-primary text-white rounded-lg font-medium"
+            className="px-6 py-2 bg-primary text-white rounded-lg font-medium mb-4"
           >
             See More
           </button>

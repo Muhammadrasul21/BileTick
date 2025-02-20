@@ -1,5 +1,4 @@
 import { mainApi } from "./index";
-
 const extendedApi = mainApi.injectEndpoints({
   endpoints: (build) => ({
     getMovies: build.query({
@@ -27,6 +26,12 @@ const extendedApi = mainApi.injectEndpoints({
         method: "GET",
       }),
     }),
+    getSingleMovieCredits: build.query({
+      query: (id) => ({
+        url: `/movie/${id}/credits`,
+        method: "GET",
+      }),
+    }),
   }),
   overrideExisting: false,
 });
@@ -36,4 +41,5 @@ export const {
   useGetSingleMovieQuery,
   useGetSingleMovieImagesQuery,
   useGetSingleMovieSimilarQuery,
+  useGetSingleMovieCreditsQuery,
 } = extendedApi;

@@ -22,6 +22,9 @@
   animation: mulShdSpin 1.3s infinite linear;
   transform: translateZ(0);
 }
+.navbar{
+  padding: 16px;
+}
 
 @keyframes mulShdSpin {
   0%,
@@ -147,17 +150,12 @@
   }
 }
 @media (max-width: 500px) {
-  .footer {
-    grid-template-columns: 1fr;
-    grid-gap: 40px;
-  }
+
   .actors {
     grid-template-columns: repeat(2, 1fr);
     place-items: center;
   }
 }
 @media (max-width: 360px) {
-  .actors {
-    grid-template-columns: 1fr;
-  }
+ 
 }

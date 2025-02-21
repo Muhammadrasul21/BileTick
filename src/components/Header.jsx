@@ -28,7 +28,7 @@ const Header = () => {
   };
 
   return (
-    <div className="container flex justify-between items-center p-4 relative">
+    <div className="navbar container flex justify-between items-cente relative">
       <NavLink
         to={"/"}
         className="text-2xl font-medium flex items-center gap-2"
@@ -94,7 +94,7 @@ const Header = () => {
 
       <div
         onClick={() => setMenuOpen(false)}
-        className={`absolute top-full w-full h-screen bg-[#0000006b] dark:bg-[#000000b0] transition-all duration-300 ${
+        className={`absolute z-10 top-full w-full h-screen bg-[#0000006b] dark:bg-[#000000b0] transition-all duration-300 ${
           menuOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
       >

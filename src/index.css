@@ -9,7 +9,8 @@
 .container {
   max-width: 1212px;
   margin: auto;
-  padding: 0px 16px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 .loader {
   color: #fff;
@@ -21,9 +22,6 @@
   text-indent: -9999em;
   animation: mulShdSpin 1.3s infinite linear;
   transform: translateZ(0);
-}
-.navbar{
-  padding: 16px;
 }
 
 @keyframes mulShdSpin {
@@ -150,12 +148,10 @@
   }
 }
 @media (max-width: 500px) {
-
   .actors {
     grid-template-columns: repeat(2, 1fr);
     place-items: center;
   }
 }
 @media (max-width: 360px) {
- 
 }

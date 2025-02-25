@@ -7,6 +7,7 @@ import {
 } from "../../redux/api/movie.api";
 import { useParams } from "react-router-dom";
 import Movies from "@/components/Movies";
+import { Image } from "antd";
 
 const Detail = () => {
   const { id } = useParams();
@@ -114,7 +115,7 @@ const Detail = () => {
               images.backdrops
                 .slice(0, 4)
                 .map((image) => (
-                  <img
+                  <Image
                     key={image.file_path}
                     className="w-full h-[200px] object-cover rounded-lg"
                     src={import.meta.env.VITE_IMAGE_URL + image.file_path}

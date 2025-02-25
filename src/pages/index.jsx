@@ -2,7 +2,7 @@ import React, { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import { SuspenseContainer } from "../utils";
 const Home = lazy(() => import("../pages/home/Home"));
-const Movie = lazy(() => import("../pages/movie/Movie"));
+const Movie = lazy(() => import("./movie/Movie"));
 const Layout = lazy(() => import("../pages/layout/Layout"));
 const Detail = lazy(() => import("../pages/detail/Detail"));
 const Saved = lazy(() => import("../pages/saved/Saved"));

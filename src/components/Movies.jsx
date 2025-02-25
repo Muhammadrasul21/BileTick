@@ -1,17 +1,11 @@
 import { useGetMoviesQuery } from "@/redux/api/movie.api";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import images from "@/assets/images.png";
 
-const Movies = () => {
-  const { data, isLoading } = useGetMoviesQuery({
-    without_genres: "18,36,10749",
-  });
+const Movies = ({data}) => {
 
   const [visibleMovies, setVisibleMovies] = useState(10);
-
-  const handleSeeMore = () => {
-    setVisibleMovies((prev) => prev + 10);
-  };
 
   return (
     <div className="container">
@@ -27,7 +21,11 @@ const Movies = () => {
             >
               <img
                 className="w-full h-full object-cover"
-                src={import.meta.env.VITE_IMAGE_URL + movie.poster_path}
+                src={
+                  movie.poster_path
+                    ? import.meta.env.VITE_IMAGE_URL + movie.poster_path
+                    : images
+                }
                 alt={movie.title}
               />
             </Link>
@@ -45,17 +43,6 @@ const Movies = () => {
           </div>
         ))}
       </div>
-
-      {visibleMovies < (data?.results?.length || 0) && (
-        <div className="flex justify-center mt-5">
-          <button
-            onClick={handleSeeMore}
-            className="px-6 py-2 bg-primary text-white rounded-lg font-medium mb-4"
-          >
-            See More
-          </button>
-        </div>
-      )}
     </div>
   );
 };

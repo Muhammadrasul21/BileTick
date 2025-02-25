@@ -32,6 +32,12 @@ const extendedApi = mainApi.injectEndpoints({
         method: "GET",
       }),
     }),
+    getGenres: build.query({
+      query: () => ({
+        url: `/genre/movie/list`,
+        method: "GET",
+      }),
+    }),
   }),
   overrideExisting: false,
 });
@@ -42,4 +48,5 @@ export const {
   useGetSingleMovieImagesQuery,
   useGetSingleMovieSimilarQuery,
   useGetSingleMovieCreditsQuery,
+  useGetGenresQuery,
 } = extendedApi;

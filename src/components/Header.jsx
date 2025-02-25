@@ -28,7 +28,7 @@ const Header = () => {
   };
 
   return (
-    <div className="navbar container flex justify-between items-cente relative">
+    <div className="py-4 container flex justify-between items-cente relative">
       <NavLink
         to={"/"}
         className="text-2xl font-medium flex items-center gap-2"

@@ -9,6 +9,7 @@ const Movies = ({data}) => {
 
   return (
     <div className="container">
+      <p className="mb-4 text-xl font-medium dark:text-primary">Movies</p>
       <div className="footer grid grid-cols-5 gap-2.5 mb-8">
         {data?.results?.slice(0, visibleMovies).map((movie) => (
           <div

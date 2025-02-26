@@ -155,3 +155,7 @@
 }
 @media (max-width: 360px) {
 }
+.category::-webkit-scrollbar{
+  display: none;
+}
+

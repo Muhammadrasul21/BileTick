@@ -40,12 +40,12 @@ const Movie = () => {
 
   return (
     <div className="container">
-      <div className="flex gap-2 mb-4 overflow-auto pb-2">
+      <div className="flex category gap-2 mb-4 overflow-auto pb-2">
         {genredata?.genres?.map((genre) => (
           <div
             onClick={() => handleChangeGenre(genre.id)}
-            className={`whitespace-nowrap px-3 py-0.5 rounded-2xl select-none cursor-pointer ${
-              with_genres.includes(genre.id.toString()) ? "bg-slate-600" : "bg-slate-300"
+            className={`whitespace-nowrap px-4 py-1 rounded select-none cursor-pointer ${
+              with_genres.includes(genre.id.toString()) ? "bg-primary text-white  dark:text-primary border dark:border-primary dark:bg-[#111111] transition duration-300 ease-in-out" : " dark:bg-[#111111] dark:text-white border dark:border-gray-800 transition duration-300 ease-in-out"
             }`}
             key={genre.id}
           >

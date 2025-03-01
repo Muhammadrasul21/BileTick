@@ -11,7 +11,7 @@ const Carousel = ({ data }) => {
     <div className="container">
       <div className="w-full flex justify-between mt-12 mb-5">
         <p>During the week</p>
-        <Link to={"/movies"}>
+        <Link to={"/movie"}>
           <p className="text-primary flex items-center font-medium cursor-pointer">
             Show all <FaChevronRight className="w-4 h-4" />
           </p>

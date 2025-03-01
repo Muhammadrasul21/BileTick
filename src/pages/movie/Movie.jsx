@@ -1,10 +1,11 @@
 import Movies from "@/components/Movies";
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { Pagination, Empty } from "antd";
 import { useGetGenresQuery, useGetMoviesQuery } from "@/redux/api/movie.api";
-import { useSearchParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 
 const Movie = () => {
+  const { id } = useParams();
   const [params, setParams] = useSearchParams();
   const page = Number(params.get("page")) || 1;
   let with_genres = params.get("genres") || "";
@@ -33,10 +34,19 @@ const Movie = () => {
     }
 
     const newParams = new URLSearchParams(params);
-    newParams.set("genres", array.join("-"));
-    newParams.set("page", "1");
+    if (array.length === 0) {
+      newParams.delete("genres");
+      newParams.delete("page");
+    } else {
+      newParams.set("genres", array.join("-"));
+      newParams.set("page", "1");
+    }
     setParams(newParams);
   };
+
+  useEffect(() => {
+    window.scrollTo({ behavior: "smooth", left: 0, top: 0 });
+  }, [page]);
 
   return (
     <div className="container">
@@ -45,7 +55,9 @@ const Movie = () => {
           <div
             onClick={() => handleChangeGenre(genre.id)}
             className={`whitespace-nowrap px-4 py-1 rounded select-none cursor-pointer ${
-              with_genres.includes(genre.id.toString()) ? "bg-primary text-white  dark:text-primary border dark:border-primary dark:bg-[#111111] transition duration-300 ease-in-out" : " dark:bg-[#111111] dark:text-white border dark:border-gray-800 transition duration-300 ease-in-out"
+              with_genres.includes(genre.id.toString())
+                ? "bg-primary text-white  dark:text-primary border dark:border-primary dark:bg-[#111111] transition duration-300 ease-in-out"
+                : " dark:bg-[#111111] dark:text-white border dark:border-gray-800 transition duration-300 ease-in-out"
             }`}
             key={genre.id}
           >
@@ -54,7 +66,7 @@ const Movie = () => {
         ))}
       </div>
 
-      {!data?.total_results && <Empty />}
+      {!data?.total_results && !isLoading && <Empty />}
 
       <Movies data={data} isLoading={isLoading} />
 

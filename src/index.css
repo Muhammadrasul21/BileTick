@@ -154,11 +154,10 @@
   }
 }
 @media (max-width: 360px) {
-  .footer{
+  .footer {
     grid-template-columns: 1fr;
   }
 }
-.category::-webkit-scrollbar{
+.category::-webkit-scrollbar {
   display: none;
 }
-

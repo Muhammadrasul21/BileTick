@@ -14,21 +14,9 @@ const extendedApi = mainApi.injectEndpoints({
         method: "GET",
       }),
     }),
-    getSingleMovieImages: build.query({
-      query: (id) => ({
-        url: `/movie/${id}/images`,
-        method: "GET",
-      }),
-    }),
-    getSingleMovieSimilar: build.query({
-      query: (id) => ({
-        url: `/movie/${id}/similar`,
-        method: "GET",
-      }),
-    }),
-    getSingleMovieCredits: build.query({
-      query: (id) => ({
-        url: `/movie/${id}/credits`,
+    getSingleItems: build.query({
+      query: ({id, path}) => ({
+        url: `/movie/${id}/${path}`,
         method: "GET",
       }),
     }),
@@ -38,6 +26,13 @@ const extendedApi = mainApi.injectEndpoints({
         method: "GET",
       }),
     }),
+    getSearch: build.query({
+      query: (params) => ({
+        url: `/search/movie`,
+        method: "GET",
+        params,
+      }),
+    }),
   }),
   overrideExisting: false,
 });
@@ -45,8 +40,7 @@ const extendedApi = mainApi.injectEndpoints({
 export const {
   useGetMoviesQuery,
   useGetSingleMovieQuery,
-  useGetSingleMovieImagesQuery,
-  useGetSingleMovieSimilarQuery,
-  useGetSingleMovieCreditsQuery,
+  useGetSingleItemsQuery,
   useGetGenresQuery,
+  useGetSearchQuery,
 } = extendedApi;

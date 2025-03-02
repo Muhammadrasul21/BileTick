@@ -41,9 +41,9 @@ const Movies = ({ data, isLoading }) => {
                 </Link>
                 <button
                   onClick={() => dispatch(toggleSaved(movie))}
-                  className="group-hover:bg-amber-50 dark:group-hover:bg-[#000000ba] duration-200 group-hover:right-2 absolute top-2 right-2 md:right-[-30px] text-xl cursor-pointer p-2 rounded-full"
-                >
-                  {isInSaved ? <FaRegBookmark className="text-red-500" /> : <FaBookmark />}
+                  className="bg-amber-50 dark:bg-[#000000ba] duration-200 right-2 absolute top-2 md:right-2 text-xl cursor-pointer p-2 rounded-full"
+                  >
+                  {isInSaved ? <FaRegBookmark className="text-black dark:text-primary" /> : <FaBookmark className="text-primary"/>}
                 </button>
                 <div className="p-1.5">
                   <h3 title={movie.title} className="text-xl font-medium line-clamp-1">

@@ -11,13 +11,9 @@ const Home = () => {
   if (isLoading) {
     return (
       <div className="text-center text-3xl my-10">
-        <span className="loader">Loading...</span>
+        <span className="loader"></span>
       </div>
     );
-  }
-
-  if (!data?.results?.length) {
-    return <div className="text-center text-2xl my-10">No movies found.</div>;
   }
 
   return (

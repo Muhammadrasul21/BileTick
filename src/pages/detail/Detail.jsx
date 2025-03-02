@@ -1,22 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { useGetSingleMovieQuery, useGetSingleItemsQuery } from "../../redux/api/movie.api";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import Movies from "@/components/Movies";
 import { Image } from "antd";
 import { FaPlay } from "react-icons/fa";
 import { LeftOutlined } from "@ant-design/icons";
-import { IoBookmarkOutline } from "react-icons/io5";
 import { FiShare2 } from "react-icons/fi";
-import { useNavigate } from "react-router-dom";
+import { RiCoupon3Fill, RiCoupon3Line } from "react-icons/ri"; // Ikonlarni yangiladik
+import { useDispatch, useSelector } from "react-redux"; // Redux'ni import qildik
+import { toggleSaved } from "@/redux/features/savedSlice"; // toggleSaved funksiyasini import qildik
 
 const Detail = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { data, isLoading } = useGetSingleMovieQuery(id);
-  const { data: images } = useGetSingleItemsQuery({id, path:"images"});
-const { data: similarData } = useGetSingleItemsQuery({id, path:"similar"});
-const { data: credits } = useGetSingleItemsQuery({id, path:"credits"});
+  const { data: images } = useGetSingleItemsQuery({ id, path: "images" });
+  const { data: similarData } = useGetSingleItemsQuery({ id, path: "similar" });
+  const { data: credits } = useGetSingleItemsQuery({ id, path: "credits" });
 
+  const dispatch = useDispatch();
+  const saved = useSelector((state) => state.saved.value); // Saqlangan filmlarni olish
+  const isInSaved = saved.some((item) => item.id === data?.id); // Film saqlanganligini tekshirish
 
   const [rating, setRating] = useState(0);
 
@@ -49,9 +53,14 @@ const { data: credits } = useGetSingleItemsQuery({id, path:"credits"});
             </div>
 
             <div className="flex gap-2">
-              <div className="w-14 h-14 bg-[#ffffffc4] dark:bg-[#000000c4] flex items-center justify-center rounded-xl text-primary cursor-pointer">
-                <IoBookmarkOutline />
-              </div>
+              {/* Saqlash tugmachasi */}
+              <button
+                onClick={() => dispatch(toggleSaved(data))}
+                className="w-14 h-14 bg-[#ffffffc4] dark:bg-[#000000c4] flex items-center justify-center rounded-xl text-primary cursor-pointer"
+              >
+                {isInSaved ? <RiCoupon3Fill className="text-red-500" /> : <RiCoupon3Line />}
+              </button>
+
               <div className="w-14 h-14 bg-[#ffffffc4] dark:bg-[#000000c4] flex items-center justify-center rounded-xl text-primary cursor-pointer">
                 <FiShare2 />
               </div>
@@ -74,6 +83,7 @@ const { data: credits } = useGetSingleItemsQuery({id, path:"credits"});
           </div>
         </div>
       </div>
+
       <div className="container mx-auto">
         <div className="mt-5 px-10">
           <h1 className="text-4xl font-bold">{data?.title}</h1>
@@ -96,24 +106,17 @@ const { data: credits } = useGetSingleItemsQuery({id, path:"credits"});
             </div>
           </div>
 
-          <p className="text-lg mt-4">
-            {data?.overview || "No information available"}
-          </p>
+          <p className="text-lg mt-4">{data?.overview || "No information available"}</p>
 
           <div className="mt-4 space-y-2">
             <p>
-              <b>Duration:</b>{" "}
-              {data?.runtime ? `${data.runtime} min` : "Unknown"}
+              <b>Duration:</b> {data?.runtime ? `${data.runtime} min` : "Unknown"}
             </p>
             <p>
-              <b>Genres:</b>{" "}
-              {data?.genres?.length
-                ? data.genres.map((g) => g.name).join(", ")
-                : "Unknown"}
+              <b>Genres:</b> {data?.genres?.length ? data.genres.map((g) => g.name).join(", ") : "Unknown"}
             </p>
             <p>
-              <b>Budget:</b>{" "}
-              {data?.budget ? `$${data.budget.toLocaleString()}` : "Unknown"}
+              <b>Budget:</b> {data?.budget ? `$${data.budget.toLocaleString()}` : "Unknown"}
             </p>
             <p>
               <b>Language:</b> {data?.original_language || "Unknown"}
@@ -121,49 +124,6 @@ const { data: credits } = useGetSingleItemsQuery({id, path:"credits"});
             <p>
               <b>Quality:</b> HD
             </p>
-          </div>
-        </div>
-
-        <div className="mt-10 px-10">
-          <h2 className="text-3xl font-semibold mb-4">Cast:</h2>
-          <div className="actors grid grid-cols-8 gap-4">
-            {credits?.cast?.length ? (
-              credits.cast.slice(0, 8).map((actor) => (
-                <div key={actor.id} className="w-[120px] text-center">
-                  <img
-                    className="w-full h-[120px] object-cover rounded-lg"
-                    src={
-                      import.meta.env.VITE_IMAGE_URL +
-                      (actor.profile_path || "/no-image.jpg")
-                    }
-                    alt={actor.name}
-                  />
-                  <p className="mt-2">{actor.name}</p>
-                </div>
-              ))
-            ) : (
-              <p>No information available</p>
-            )}
-          </div>
-        </div>
-
-        <div className="mt-10 px-10">
-          <h2 className="text-3xl font-semibold mb-4">Stills:</h2>
-          <div className="footer grid grid-cols-4 gap-2">
-            {images?.backdrops?.length ? (
-              images.backdrops
-                .slice(0, 4)
-                .map((image) => (
-                  <Image
-                    key={image.file_path}
-                    className="w-full h-[200px] object-cover rounded-lg"
-                    src={import.meta.env.VITE_IMAGE_URL + image.file_path}
-                    alt=""
-                  />
-                ))
-            ) : (
-              <p>No images available</p>
-            )}
           </div>
         </div>
 

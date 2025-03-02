@@ -1,6 +1,9 @@
 import React, { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import { SuspenseContainer } from "../utils";
+import { Provider } from "react-redux";
+import store from "@/redux/index";
+
 const Home = lazy(() => import("../pages/home/Home"));
 const Movie = lazy(() => import("./movie/Movie"));
 const Layout = lazy(() => import("../pages/layout/Layout"));
@@ -12,6 +15,7 @@ const Movies = lazy(() => import("../components/Movies"));
 const RouterMain = () => {
   return (
     <div className="dark:bg-black dark:text-white">
+     <Provider store={store}>
       <Routes>
         <Route
           path="/"
@@ -71,6 +75,7 @@ const RouterMain = () => {
           />
         </Route>
       </Routes>
+     </Provider>
     </div>
   );
 };

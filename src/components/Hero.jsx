@@ -29,7 +29,6 @@ const Hero = ({ data }) => {
             style={{
               backgroundImage: `url(${import.meta.env.VITE_IMAGE_URL + movie.poster_path})`,
               backgroundSize: "cover",
-              backgroundPosition: "center",
               height: "640px",
             }}
           >

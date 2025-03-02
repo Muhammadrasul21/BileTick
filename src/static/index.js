@@ -1,7 +1,8 @@
 import { PiMonitorFill } from "react-icons/pi";
 import { BsFillTabletFill } from "react-icons/bs";
+import {  } from "react-icons/fa";
+
 import {
-  RiCoupon3Line,
   RiBasketballLine,
   RiMovie2Line,
   RiClapperboardLine,
@@ -10,7 +11,8 @@ import {
   RiPhoneLine,
   RiShiningLine,
 } from "react-icons/ri";
-import { FaSearch } from "react-icons/fa";
+
+import { FaSearch, FaBookmark } from "react-icons/fa";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 
 export const navbarItems = [
@@ -28,7 +30,7 @@ export const navbarItems = [
   },
   {
     id: 3,
-    icon: RiCoupon3Line,
+    icon: FaBookmark,
     name: "Saved",
     path: "/saved",
   },

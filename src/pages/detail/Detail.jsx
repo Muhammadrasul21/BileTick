@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useGetSingleMovieQuery, useGetSingleItemsQuery } from "../../redux/api/movie.api";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import Movies from "@/components/Movies";
-import { Image } from "antd";
-import { FaPlay } from "react-icons/fa";
 import { LeftOutlined } from "@ant-design/icons";
 import { FiShare2 } from "react-icons/fi";
-import { RiCoupon3Fill, RiCoupon3Line } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux"; 
 import { toggleSaved } from "@/redux/features/savedSlice"; 
+import { FaRegBookmark, FaBookmark, FaPlay } from "react-icons/fa";
+
 
 const Detail = () => {
   const navigate = useNavigate();
@@ -57,7 +56,7 @@ const Detail = () => {
                 onClick={() => dispatch(toggleSaved(data))}
                 className="w-14 h-14 bg-[#ffffffc4] dark:bg-[#000000c4] flex items-center justify-center rounded-xl text-primary cursor-pointer"
               >
-                {isInSaved ? <RiCoupon3Fill className="text-red-500" /> : <RiCoupon3Line />}
+                {isInSaved ? <FaBookmark className="text-red-500" /> : <FaRegBookmark />}
               </button>
 
               <div className="w-14 h-14 bg-[#ffffffc4] dark:bg-[#000000c4] flex items-center justify-center rounded-xl text-primary cursor-pointer">

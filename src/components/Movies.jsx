@@ -5,6 +5,7 @@ import Skeleton from "./skeleton/Skeleton";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSaved } from "@/redux/features/savedSlice";
 import { RiCoupon3Fill, RiCoupon3Line } from "react-icons/ri";
+import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 
 const Movies = ({ data, isLoading }) => {
   const [visibleMovies, setVisibleMovies] = useState(10);
@@ -42,7 +43,7 @@ const Movies = ({ data, isLoading }) => {
                   onClick={() => dispatch(toggleSaved(movie))}
                   className="group-hover:bg-amber-50 dark:group-hover:bg-[#000000ba] duration-200 group-hover:right-2 absolute top-2 right-2 md:right-[-30px] text-xl cursor-pointer p-2 rounded-full"
                 >
-                  {isInSaved ? <RiCoupon3Fill className="text-red-500" /> : <RiCoupon3Line />}
+                  {isInSaved ? <FaRegBookmark className="text-red-500" /> : <FaBookmark />}
                 </button>
                 <div className="p-1.5">
                   <h3 title={movie.title} className="text-xl font-medium line-clamp-1">

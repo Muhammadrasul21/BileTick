@@ -6,9 +6,9 @@ import { Image } from "antd";
 import { FaPlay } from "react-icons/fa";
 import { LeftOutlined } from "@ant-design/icons";
 import { FiShare2 } from "react-icons/fi";
-import { RiCoupon3Fill, RiCoupon3Line } from "react-icons/ri"; // Ikonlarni yangiladik
-import { useDispatch, useSelector } from "react-redux"; // Redux'ni import qildik
-import { toggleSaved } from "@/redux/features/savedSlice"; // toggleSaved funksiyasini import qildik
+import { RiCoupon3Fill, RiCoupon3Line } from "react-icons/ri";
+import { useDispatch, useSelector } from "react-redux"; 
+import { toggleSaved } from "@/redux/features/savedSlice"; 
 
 const Detail = () => {
   const navigate = useNavigate();
@@ -19,8 +19,8 @@ const Detail = () => {
   const { data: credits } = useGetSingleItemsQuery({ id, path: "credits" });
 
   const dispatch = useDispatch();
-  const saved = useSelector((state) => state.saved.value); // Saqlangan filmlarni olish
-  const isInSaved = saved.some((item) => item.id === data?.id); // Film saqlanganligini tekshirish
+  const saved = useSelector((state) => state.saved.value);
+  const isInSaved = saved.some((item) => item.id === data?.id); 
 
   const [rating, setRating] = useState(0);
 
@@ -53,7 +53,6 @@ const Detail = () => {
             </div>
 
             <div className="flex gap-2">
-              {/* Saqlash tugmachasi */}
               <button
                 onClick={() => dispatch(toggleSaved(data))}
                 className="w-14 h-14 bg-[#ffffffc4] dark:bg-[#000000c4] flex items-center justify-center rounded-xl text-primary cursor-pointer"

@@ -29,8 +29,9 @@ const Header = () => {
   };
 
   return (
-    <div className="w-full flex justify-center sticky top-0 left-0 z-10 bg-[#ffffffe8] dark:bg-[#000000e8]">
-      <div className="py-4 container flex justify-between items-center">
+    <div className="w-full flex justify-center sticky top-0 left-0 z-10">
+      <div className="flex justify-center bg-[#ffffffe8] dark:bg-[#000000e8] w-full h-[82px]">
+      <div className="py-4 container fixed flex justify-between items-center">
         <NavLink
           to={"/"}
           className="text-2xl font-medium flex items-center gap-2"
@@ -123,7 +124,10 @@ const Header = () => {
           </div>
         </div>
       </div>
-    </div>
+
+      </div>
+
+      </div>
   );
 };
 

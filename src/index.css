@@ -6,6 +6,11 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+
+*{
+  box-sizing: border-box;
+}
+
 .container {
   max-width: 1212px;
   margin: auto;

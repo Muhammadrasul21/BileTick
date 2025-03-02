@@ -8,13 +8,6 @@ const Home = () => {
     without_genres: "18,36,10749",
   });
 
-  if (isLoading) {
-    return (
-      <div className="text-center text-3xl my-10">
-        <span className="loader"></span>
-      </div>
-    );
-  }
 
   return (
     <>

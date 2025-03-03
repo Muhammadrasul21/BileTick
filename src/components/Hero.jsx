@@ -27,8 +27,8 @@ const Hero = ({ data }) => {
             key={movie.id}
             className="cursor-pointer relative flex items-center justify-center text-center text-white p-6"
             style={{
-              backgroundImage: `url(${import.meta.env.VITE_IMAGE_URL + movie.poster_path})`,
-              backgroundSize: "cover",
+              backgroundImage: `url(${import.meta.env.VITE_IMAGE_URL + movie.backdrop_path})`,
+              backgroundSize:"cover",
               height: "640px",
             }}
           >

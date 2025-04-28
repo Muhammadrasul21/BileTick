@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useGetSingleMovieQuery, useGetSingleItemsQuery } from "../../redux/api/movie.api";
+import {
+  useGetSingleMovieQuery,
+  useGetSingleItemsQuery,
+} from "../../redux/api/movie.api";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import Movies from "@/components/Movies";
 import { LeftOutlined } from "@ant-design/icons";
 import { FiShare2 } from "react-icons/fi";
-import { useDispatch, useSelector } from "react-redux"; 
-import { toggleSaved } from "@/redux/features/savedSlice"; 
+import { useDispatch, useSelector } from "react-redux";
+import { toggleSaved } from "@/redux/features/savedSlice";
 import { FaRegBookmark, FaBookmark, FaPlay } from "react-icons/fa";
-
 
 const Detail = () => {
   const navigate = useNavigate();
@@ -19,7 +21,7 @@ const Detail = () => {
 
   const dispatch = useDispatch();
   const saved = useSelector((state) => state.saved.value);
-  const isInSaved = saved.some((item) => item.id === data?.id); 
+  const isInSaved = saved.some((item) => item.id === data?.id);
 
   const [rating, setRating] = useState(0);
 
@@ -56,7 +58,11 @@ const Detail = () => {
                 onClick={() => dispatch(toggleSaved(data))}
                 className="w-14 h-14 bg-[#ffffffc4] dark:bg-[#000000c4] flex items-center justify-center rounded-xl text-primary cursor-pointer"
               >
-                {isInSaved ? <FaBookmark className="text-red-500" /> : <FaRegBookmark />}
+                {isInSaved ? (
+                  <FaBookmark className="text-red-500" />
+                ) : (
+                  <FaRegBookmark />
+                )}
               </button>
 
               <div className="w-14 h-14 bg-[#ffffffc4] dark:bg-[#000000c4] flex items-center justify-center rounded-xl text-primary cursor-pointer">
@@ -104,17 +110,24 @@ const Detail = () => {
             </div>
           </div>
 
-          <p className="text-lg mt-4">{data?.overview || "No information available"}</p>
+          <p className="text-lg mt-4">
+            {data?.overview || "No information available"}
+          </p>
 
           <div className="mt-4 space-y-2">
             <p>
-              <b>Duration:</b> {data?.runtime ? `${data.runtime} min` : "Unknown"}
+              <b>Duration:</b>{" "}
+              {data?.runtime ? `${data.runtime} min` : "Unknown"}
             </p>
             <p>
-              <b>Genres:</b> {data?.genres?.length ? data.genres.map((g) => g.name).join(", ") : "Unknown"}
+              <b>Genres:</b>{" "}
+              {data?.genres?.length
+                ? data.genres.map((g) => g.name).join(", ")
+                : "Unknown"}
             </p>
             <p>
-              <b>Budget:</b> {data?.budget ? `$${data.budget.toLocaleString()}` : "Unknown"}
+              <b>Budget:</b>{" "}
+              {data?.budget ? `$${data.budget.toLocaleString()}` : "Unknown"}
             </p>
             <p>
               <b>Language:</b> {data?.original_language || "Unknown"}

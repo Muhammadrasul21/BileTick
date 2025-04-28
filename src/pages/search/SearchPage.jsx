@@ -7,12 +7,11 @@ import { useSearchParams } from "react-router-dom";
 const { Search } = Input;
 const SearchPage = () => {
   const [params, setParams] = useSearchParams();
-   const query = params.get("q") || ""
-
+  const query = params.get("q") || "";
 
   const onSearch = (value) => {
-    params.set("q", value)
-    setParams(params)
+    params.set("q", value);
+    setParams(params);
   };
   const { data, isSuccess } = useGetSearchQuery(
     { include_adult: false, query: query },
@@ -30,8 +29,8 @@ const SearchPage = () => {
           autoFocus
         />
       </div>
-       {!data?.total_results && <Empty/>}  
-       <Movies data={data}/>  
+      {!data?.total_results && <Empty />}
+      <Movies data={data} />
     </div>
   );
 };

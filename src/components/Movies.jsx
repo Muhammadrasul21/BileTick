@@ -42,11 +42,18 @@ const Movies = ({ data, isLoading }) => {
                 <button
                   onClick={() => dispatch(toggleSaved(movie))}
                   className="bg-amber-50 dark:bg-[#000000ba] duration-200 right-2 absolute top-2 md:right-2 text-xl cursor-pointer p-2 rounded-full"
-                  >
-                  {isInSaved ? <FaRegBookmark className="text-black dark:text-primary" /> : <FaBookmark className="text-primary"/>}
+                >
+                  {isInSaved ? (
+                    <FaBookmark className="text-black dark:text-primary" />
+                  ) : (
+                    <FaRegBookmark className="text-primary" />
+                  )}
                 </button>
                 <div className="p-1.5">
-                  <h3 title={movie.title} className="text-xl font-medium line-clamp-1">
+                  <h3
+                    title={movie.title}
+                    className="text-xl font-medium line-clamp-1"
+                  >
                     {movie.title}
                   </h3>
                   <p className="text-yellow-500 font-medium">
@@ -61,6 +68,5 @@ const Movies = ({ data, isLoading }) => {
     </div>
   );
 };
-
 
 export default Movies;

@@ -15,7 +15,7 @@ const extendedApi = mainApi.injectEndpoints({
       }),
     }),
     getSingleItems: build.query({
-      query: ({id, path}) => ({
+      query: ({ id, path }) => ({
         url: `/movie/${id}/${path}`,
         method: "GET",
       }),

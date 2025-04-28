@@ -42,7 +42,10 @@ const Carousel = ({ data }) => {
           const isInSaved = saved.some((item) => item.id === movie.id);
 
           return (
-            <SwiperSlide key={movie.id} className="min-h-[400px] max-w-[280px] mb-10">
+            <SwiperSlide
+              key={movie.id}
+              className="min-h-[400px] max-w-[280px] mb-10"
+            >
               <div className="flex flex-col gap-2 relative">
                 <Link to={`/movie/${movie.id}`}>
                   <img
@@ -55,13 +58,23 @@ const Carousel = ({ data }) => {
                   onClick={() => dispatch(toggleSaved(movie))}
                   className="bg-amber-50 dark:bg-[#000000ba] duration-200 right-2 absolute top-2 text-xl cursor-pointer p-2 rounded-full"
                 >
-                  {isInSaved ? <FaBookmark className="text-black dark:text-primary" /> : <FaRegBookmark className="text-primary" />}
+                  {isInSaved ? (
+                    <FaBookmark className="text-black dark:text-primary" />
+                  ) : (
+                    <FaRegBookmark className="text-primary" />
+                  )}
                 </button>
                 <div className="flex flex-col gap-2">
-                  <p className="font-medium text-2xl line-clamp-1" title={movie.title}>
+                  <p
+                    className="font-medium text-2xl line-clamp-1"
+                    title={movie.title}
+                  >
                     {movie.title}
                   </p>
-                  <p className="font-medium text-[14px] text-[#4D4D4D]" title={movie.title}>
+                  <p
+                    className="font-medium text-[14px] text-[#4D4D4D]"
+                    title={movie.title}
+                  >
                     {movie.release_date}
                   </p>
                 </div>

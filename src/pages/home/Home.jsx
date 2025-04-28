@@ -8,7 +8,6 @@ const Home = () => {
     without_genres: "18,36,10749",
   });
 
-
   return (
     <>
       <Hero data={data} />

@@ -15,67 +15,67 @@ const Movies = lazy(() => import("../components/Movies"));
 const RouterMain = () => {
   return (
     <div className="dark:bg-black dark:text-white">
-     <Provider store={store}>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <SuspenseContainer>
-              <Layout />
-            </SuspenseContainer>
-          }
-        >
+      <Provider store={store}>
+        <Routes>
           <Route
             path="/"
             element={
               <SuspenseContainer>
-                <Home />
+                <Layout />
               </SuspenseContainer>
             }
-          />
-          <Route
-            path="movie"
-            element={
-              <SuspenseContainer>
-                <Movie />
-              </SuspenseContainer>
-            }
-          />
-          <Route
-            path="saved"
-            element={
-              <SuspenseContainer>
-                <Saved />
-              </SuspenseContainer>
-            }
-          />
-          <Route
-            path="search"
-            element={
-              <SuspenseContainer>
-                <SearchPage />
-              </SuspenseContainer>
-            }
-          />
-          <Route
-            path="movies"
-            element={
-              <SuspenseContainer>
-                <Movies />
-              </SuspenseContainer>
-            }
-          />
-          <Route
-            path="movie/:id"
-            element={
-              <SuspenseContainer>
-                <Detail />
-              </SuspenseContainer>
-            }
-          />
-        </Route>
-      </Routes>
-     </Provider>
+          >
+            <Route
+              path="/"
+              element={
+                <SuspenseContainer>
+                  <Home />
+                </SuspenseContainer>
+              }
+            />
+            <Route
+              path="movie"
+              element={
+                <SuspenseContainer>
+                  <Movie />
+                </SuspenseContainer>
+              }
+            />
+            <Route
+              path="saved"
+              element={
+                <SuspenseContainer>
+                  <Saved />
+                </SuspenseContainer>
+              }
+            />
+            <Route
+              path="search"
+              element={
+                <SuspenseContainer>
+                  <SearchPage />
+                </SuspenseContainer>
+              }
+            />
+            <Route
+              path="movies"
+              element={
+                <SuspenseContainer>
+                  <Movies />
+                </SuspenseContainer>
+              }
+            />
+            <Route
+              path="movie/:id"
+              element={
+                <SuspenseContainer>
+                  <Detail />
+                </SuspenseContainer>
+              }
+            />
+          </Route>
+        </Routes>
+      </Provider>
     </div>
   );
 };

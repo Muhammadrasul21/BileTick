@@ -1,6 +1,6 @@
 import { PiMonitorFill } from "react-icons/pi";
 import { BsFillTabletFill } from "react-icons/bs";
-import {  } from "react-icons/fa";
+import {} from "react-icons/fa";
 
 import {
   RiBasketballLine,
